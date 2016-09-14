@@ -2,14 +2,13 @@
 //  CDVRemoteInjection.h
 //
 
+#import <WebKit/WebKit.h>
 #import <Cordova/CDVPlugin.h>
 
-#define kCDVRemoteInjectionWebViewDidStartLoad @"CDVRemoveInjectionWebViewDidStartLoad"
-#define kCDVRemoteInjectionWebViewDidFinishLoad @"CDVRemoveInjectionWebViewDidFinishLoad"
-#define kCDVRemoteInjectionWebViewDidFailLoadWithError @"CDVRemoteInjectionWebViewDidFailLoadWithError"
+#define kCDVRemoteInjectionWebViewDidFinishNavigation @"CDVRemoteInjectionWebViewDidFinishNavigation"
 
-@interface CDVRemoteInjectionWebViewNotificationDelegate : NSObject <UIWebViewDelegate>
-    @property (nonatomic,retain) id<UIWebViewDelegate> wrappedDelegate;
+@interface CDVRemoteInjectionWebViewNotificationDelegate : NSObject <WKNavigationDelegate>
+    @property (nonatomic,retain) id<WKNavigationDelegate> wrappedDelegate;
 @end
 
 @interface CDVRemoteInjectionPlugin : CDVPlugin
